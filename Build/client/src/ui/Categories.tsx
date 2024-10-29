@@ -25,7 +25,7 @@ const Categories = () => {
 
   return (
     <Container>
-        <div className="mt-10 mb-10">
+        <div className="mb-10">
             <div className="flex items-center justify-between">
                 <Title text="Poputar categories" />
                 <Link 
