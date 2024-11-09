@@ -5,12 +5,15 @@ import { useState } from "react";
 import { Button, Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from "@headlessui/react";
 import FormattedPrice from "./FormattedPrice";
 import ProductCardSideNav from "./ProductCardSideNav";
+import { useNavigate } from "react-router-dom";
 
 interface Props{
     item:ProductProps;
+    setSearchText?:any;
 }
-const ProductCard = ({item}:Props) => {
+const ProductCard = ({item,setSearchText}:Props) => {
     const [isOpen,setIsOpen] =useState(false);
+    const navigatinon = useNavigate();
     const open =()=>{
         setIsOpen(true);
     }
@@ -20,7 +23,8 @@ const ProductCard = ({item}:Props) => {
     const percentage = ((item?.regularPrice - item?.discountedPrice)/item?.regularPrice)*100;
 
     const handleProduct =() =>{
-        
+        navigatinon(`/product/${item?._id}`);
+        setSearchText && setSearchText("")
     }
   return (
     <div className="border border-gray-200 rounded-l p-1
